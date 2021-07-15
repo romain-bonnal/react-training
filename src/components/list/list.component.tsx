@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Post from '../models/post.model';
-import PreviewComponent from './preview.component';
-import DebugComponent from './debug.component';
+import Post from '../../models/post.model';
+import PreviewComponent from '../preview/preview.component';
+import { Title, Button } from './list.component.style';
+
 
 export default function ListComponent(): JSX.Element {
 
@@ -39,14 +40,11 @@ export default function ListComponent(): JSX.Element {
     
     return (
         <>
-            <button onClick={onclickAdd}>Ajouter un Post</button>
-            <h2>Liste des articles</h2>
-            <table>
-            <tr><th>Id</th><th>Title</th><th>Excerpt</th><th>Image</th></tr>
+            <Button onClick={onclickAdd}>Ajouter un Post</Button>
+            <Title>Liste des articles</Title>
             { posts.map(post => (
-                <tr><PreviewComponent post={post}/></tr>
-                ))}
-            </table>
+                <PreviewComponent post={post}/>
+            ))}
         </>
     );
 }

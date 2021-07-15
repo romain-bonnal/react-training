@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import ListComponent from "./components/list.component";
+import ListComponent from "./components/list/list.component";
+import DogImageComponent from './components/dog/dogimage.component';
 
 function App() {
-  
+
   return (
     <div className="App">
-      <ListComponent/>
+      <div><ListComponent/></div>
+      
     </div>
   );
 }
