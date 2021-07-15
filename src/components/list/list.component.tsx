@@ -1,7 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../../models/post.model';
 import PreviewComponent from '../preview/preview.component';
-import { Title, Button } from './list.component.style';
+import Button from '@material-ui/core/Button';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }),
+);
 
 
 export default function ListComponent(): JSX.Element {
@@ -38,13 +54,22 @@ export default function ListComponent(): JSX.Element {
         ]); 
      };
     
+     const classes = useStyles();
+
     return (
-        <>
-            <Button onClick={onclickAdd}>Ajouter un Post</Button>
-            <Title>Liste des articles</Title>
-            { posts.map(post => (
-                <PreviewComponent post={post}/>
-            ))}
-        </>
+        <div className={classes.root}>
+        <Grid container spacing={3}>
+            <Grid item xs={12}>
+                <h1>Liste des articles</h1>
+                <Button onClick={onclickAdd}>Ajouter un Post</Button>
+            </Grid>
+            <Grid item xs={12}>
+                { posts.map(post => (
+                    <PreviewComponent post={post}/>
+                ))}
+            </Grid>
+        </Grid>
+        </div>
     );
+    
 }
