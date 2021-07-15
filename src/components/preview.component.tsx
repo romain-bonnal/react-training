@@ -8,7 +8,7 @@ type Props = {
 export default function PreviewComponent(props: Props) {  
     return (<>
         <td> {props.post.id} </td>
-        <td> {props.post.content} </td>
+        <td> {props.post.title} </td>
         <td> {props.post.excerpt} </td>
         <td> {props.post.imageURI} </td>
     </>);

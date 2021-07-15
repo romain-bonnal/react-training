@@ -23,5 +23,15 @@ export default class Post {
         }
       }
     
-    
+    public fromApi(data: any) {
+        if (data.id){
+            this.id = data.id;
+        }
+
+        return this;
+    }
+
+    public toApi() {
+        return JSON.stringify(this);
+    }
 }
