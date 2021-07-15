@@ -3,7 +3,6 @@ import Post from '../../models/post.model';
 import PreviewComponent from '../preview/preview.component';
 import Button from '@material-ui/core/Button';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -64,8 +63,8 @@ export default function ListComponent(): JSX.Element {
                 <Button onClick={onclickAdd}>Ajouter un Post</Button>
             </Grid>
             <Grid item xs={12}>
-                { posts.map(post => (
-                    <PreviewComponent post={post}/>
+                { posts.map((post, index:number) => (
+                    <PreviewComponent key={index} post={post}/>
                 ))}
             </Grid>
         </Grid>
